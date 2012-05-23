@@ -1,7 +1,5 @@
 <?php
 	include('config.php');
-	
-function registerUser(){
 	//connect to the database
 	$connection=mysql_connect("localhost","root","")
 		or print "connect failed because ".mysql_error();  
@@ -9,6 +7,9 @@ function registerUser(){
     mysql_select_db("test",$connection)
 		or print "select failed because ".mysql_error();
 		
+		
+		
+function registerUser(){
 	$userName = mysql_real_escape_string($_POST['userName']);
 	$password = mysql_real_escape_string($_POST['password']);
 	
@@ -19,7 +20,7 @@ function registerUser(){
 	setcookie("isLoged", 'yes', time()+2419200);
 	setcookie("userName", $userName, time()+2419200);
 
-	header("Location: $loginPage");
+	echo("Thank you for joining Creeper Stash- please login on the main page.");
 	exit();
 }
 ?>
